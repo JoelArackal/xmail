@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block bodyblock %}
+<div class="container">
+<form action="sendmsg" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <br><br>
+    Recipient: <input type="text" name="receiver" placeholder="@" required>
+    <input type="hidden" name="sender" value="{{user}}">
+    <br>
+    Message: <br>
+    <div class="row">
+    <div class="col-lg-8 col-sm-12">
+    <textarea name="text" id="" class="txtarea" required></textarea>
+    </div>
+    </div><br>
+    
+    <input type="file" name='image' accept="image/*"  id='image' class="inputfile">
+    <label for="image"><span class="glyphicon glyphicon-picture" title="attach image"></span></label> 
+
+    <input type="file" name="file" id='file' class="inputfile">
+    <label for="file"><span class="glyphicon glyphicon-paperclip" title="attach file"></span></label><br>
+    
+    <input type="submit" class="btn btn-primary send" value="Send"> 
+    <br><br><span id='smsg'>Sending..</span>
+</form>
+</div>
+
+{% endblock %}

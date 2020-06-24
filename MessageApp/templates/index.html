@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block bodyblock %}
+<div class="jumbotron">
+    <div class="container">
+<h1>X-Mail</h1>
+<h4><b>A Messaging Web Application</b></h4>
+<br><br>
+<p>
+{% if user.is_authenticated %}
+<h2>Welome {{user.first_name}} {{user.last_name}},</h2>
+<br>
+<a href="{% url 'sendmsg' %}" class='btn btn-default'><span class="glyphicon glyphicon-pencil"></span> Compose Message</a>
+<a href="{% url 'messages' pk=user.pk %}" class="btn btn-danger"><span class="glyphicon glyphicon-envelope"></span> Inbox <span class="badge">{{user.received_messages.count}}</span></a>
+{% else %}
+</p>
+<p></p>
+<p>
+Not a user? 
+<a href="reg" class="btn btn-success"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
+</p>
+<p>
+Already have an account? <a href="login" class="btn btn-primary"><span class="glyphicon glyphicon-log-in"></span> Log In</a>
+{% endif %}
+</p>
+</div>
+</div>
+
+
+
+{% endblock %}

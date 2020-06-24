@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block bodyblock %}
+<div class="container">
+    <div class="container">
+<h1 align=center>Messages</h1>
+{% for msgs in messages %}
+<div class="messages">
+<p><b>{{msgs.sender}}:</b> 
+    <span class="date">{{msgs.sent_date}}</span>
+    <div class="msg">
+    <pre>{{msgs.text}}</pre></p>
+{% if msgs.MImage %}
+<a href="{{ msgs.MImage.url }}"><img src="{{ msgs.MImage.url }}" alt="" style="width: 100px;"></a>
+{% endif %}
+{% if msgs.MFile %}
+<a href="{{ msgs.MFile.url }}">File Attachment</a>
+{% endif %}
+<br>
+
+</div>
+    </div>
+
+{% endfor %}
+</div>
+</div>
+
+{% endblock %}
