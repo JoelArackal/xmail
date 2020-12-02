@@ -28,7 +28,7 @@ SECRET_KEY = 'znwf$(rm)p!va*41*y(dlylz@dj%^#m00hyj7jy(1_!7r^yfz8'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost','192.168.43.141','LAPTOP-90F4R1JS']
+ALLOWED_HOSTS = ['localhost','192.168.43.141','LAPTOP-90F4R1JS','117.230.28.81','192.168.42.35']
 
 
 # Application definition
@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bootstrap3',
+    'rest_framework',
     'basic_app',
 ]
 
@@ -127,3 +128,7 @@ STATICFILES_DIRS = [STATIC_DIR,]
 
 MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = '/media/'
+
+
+LOGIN_URL = '/login'
+

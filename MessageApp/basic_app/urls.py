@@ -10,4 +10,5 @@ urlpatterns = [
     path('reg',views.UserCreateView.as_view(),name='reg'),
     path('login',views.user_login,name='login'),
     path('logout',views.user_logout,name='logout'),
+    path('api/messages',views.MessageApi.as_view(),name='api'),
 ]
